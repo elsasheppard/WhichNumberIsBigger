@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onLeftClick(view: View){
+        // get button number values as String variables
         var checkLeftInt = button_main_left.text.toString().toInt()
         var checkRightInt = button_main_right.text.toString().toInt()
         // read the buttons
@@ -42,10 +43,12 @@ class MainActivity : AppCompatActivity() {
             score--
             textView_main_score.setText(score.toString())
         }
-        // button_main_left.setText(generateNumbers().toString())
-        // button_main_right.setText(generateNumbers().toString())
+        // reset buttons to new numbers
+        button_main_left.setText(generateNumbers().toString())
+        button_main_right.setText(generateNumbers().toString())
     }
     fun onRightClick(view: View){
+        // get button number values as String variables
         var checkLeftInt = button_main_left.text.toString().toInt()
         var checkRightInt = button_main_right.text.toString().toInt()
         if(checkRightInt > checkLeftInt) {
@@ -56,8 +59,9 @@ class MainActivity : AppCompatActivity() {
             score--
             textView_main_score.setText(score.toString())
         }
-        // button_main_left.setText(generateNumbers().toString())
-        // button_main_right.setText(generateNumbers().toString())
+        // reset buttons to new numbers
+        button_main_left.setText(generateNumbers().toString())
+        button_main_right.setText(generateNumbers().toString())
     }
 
 }
