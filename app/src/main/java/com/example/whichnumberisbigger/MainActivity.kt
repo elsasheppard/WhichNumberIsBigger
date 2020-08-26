@@ -9,8 +9,7 @@ class MainActivity : AppCompatActivity() {
 
     // if you need instance variables, you can make them here
     private var score = 0
-    private var leftRandInt = 0
-    private var rightRandInt = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,18 +28,36 @@ class MainActivity : AppCompatActivity() {
     fun generateNumbers(): Int {
         // code to make new random numbers
         return (Math.random()*100 +1).toInt()
-
     }
 
     fun onLeftClick(view: View){
-        button_main_left.text.toString().toInt()
+        var checkLeftInt = button_main_left.text.toString().toInt()
+        var checkRightInt = button_main_right.text.toString().toInt()
         // read the buttons
-
-
+        if(checkLeftInt > checkRightInt) {
+            score++
+            textView_main_score.setText(score.toString())
+        }
+        else {
+            score--
+            textView_main_score.setText(score.toString())
+        }
+        // button_main_left.setText(generateNumbers().toString())
+        // button_main_right.setText(generateNumbers().toString())
     }
     fun onRightClick(view: View){
-
-
+        var checkLeftInt = button_main_left.text.toString().toInt()
+        var checkRightInt = button_main_right.text.toString().toInt()
+        if(checkRightInt > checkLeftInt) {
+            score++
+            textView_main_score.setText(score.toString())
+        }
+        else {
+            score--
+            textView_main_score.setText(score.toString())
+        }
+        // button_main_left.setText(generateNumbers().toString())
+        // button_main_right.setText(generateNumbers().toString())
     }
 
 }
