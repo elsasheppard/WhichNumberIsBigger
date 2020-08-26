@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     // if you need instance variables, you can make them here
     private var score = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,14 +44,13 @@ class MainActivity : AppCompatActivity() {
             score++
             textView_main_score.setText(score.toString())
             Toast.makeText(this, "Congrats! You're not an idiot!", Toast.LENGTH_SHORT).show()
-
         }
         else {
             score--
             textView_main_score.setText(score.toString())
             Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
-
         }
+
         // reset buttons to new numbers
         button_main_left.setText(generateNumbers().toString())
         button_main_right.setText(generateNumbers().toString())
@@ -76,9 +74,9 @@ class MainActivity : AppCompatActivity() {
             textView_main_score.setText(score.toString())
             Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
         }
+
         // reset buttons to new numbers
         button_main_left.setText(generateNumbers().toString())
         button_main_right.setText(generateNumbers().toString())
     }
-
 }
