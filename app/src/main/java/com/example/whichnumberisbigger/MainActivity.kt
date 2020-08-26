@@ -19,25 +19,27 @@ class MainActivity : AppCompatActivity() {
         // do your initial setup here in the onCreate
         // generate two random numbers
         // assign those numbers to the buttons
+        button_main_left.setText(generateNumbers().toString())
+        button_main_right.setText(generateNumbers().toString())
         // set an initial score to 0
+        textView_main_score.setText(score.toString())
 
     }
 
-    fun generateNumbers()
-    {
+    fun generateNumbers(): Int {
         // code to make new random numbers
-        leftRandInt = (Math.random()*100 +1).toInt()
-        rightRandInt = (Math.random()*100 +1).toInt()
+        return (Math.random()*100 +1).toInt()
+
     }
 
     fun onLeftClick(view: View){
-        button_main_left.setText(leftRandInt.toString())
+        button_main_left.text.toString().toInt()
         // read the buttons
 
 
     }
     fun onRightClick(view: View){
-        button_main_right.setText(rightRandInt.toString())
+
 
     }
 
