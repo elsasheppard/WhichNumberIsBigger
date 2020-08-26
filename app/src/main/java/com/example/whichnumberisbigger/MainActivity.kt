@@ -3,6 +3,7 @@ package com.example.whichnumberisbigger
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -34,14 +35,23 @@ class MainActivity : AppCompatActivity() {
         // get button number values as String variables
         var checkLeftInt = button_main_left.text.toString().toInt()
         var checkRightInt = button_main_right.text.toString().toInt()
+
         // read the buttons
-        if(checkLeftInt > checkRightInt) {
+        if(checkLeftInt == checkRightInt){
+            button_main_left.setText(generateNumbers().toString())
+            button_main_right.setText(generateNumbers().toString())
+        }
+        else if(checkLeftInt > checkRightInt) {
             score++
             textView_main_score.setText(score.toString())
+            Toast.makeText(this, "Congrats! You're not an idiot!", Toast.LENGTH_SHORT).show()
+
         }
         else {
             score--
             textView_main_score.setText(score.toString())
+            Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
+
         }
         // reset buttons to new numbers
         button_main_left.setText(generateNumbers().toString())
@@ -51,13 +61,20 @@ class MainActivity : AppCompatActivity() {
         // get button number values as String variables
         var checkLeftInt = button_main_left.text.toString().toInt()
         var checkRightInt = button_main_right.text.toString().toInt()
-        if(checkRightInt > checkLeftInt) {
+
+        if(checkLeftInt == checkRightInt){
+            button_main_left.setText(generateNumbers().toString())
+            button_main_right.setText(generateNumbers().toString())
+        }
+        else if(checkRightInt > checkLeftInt) {
             score++
             textView_main_score.setText(score.toString())
+            Toast.makeText(this, "Congrats! You're not an idiot!", Toast.LENGTH_SHORT).show()
         }
         else {
             score--
             textView_main_score.setText(score.toString())
+            Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
         }
         // reset buttons to new numbers
         button_main_left.setText(generateNumbers().toString())
@@ -65,7 +82,3 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
-
-//To access the number on a button:
-//button_main_left.text.toString().toInt()
-//You don't need to use getters to access instance variable values anymore in Kotlin. The text attribute is a CharSequence that needs to be converted to a String before going to an Int.
