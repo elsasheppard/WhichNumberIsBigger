@@ -94,3 +94,31 @@ class MainActivity : AppCompatActivity() {
         button_main_right.text = generateNumbers().toString()
     }
 }
+
+/*
+if(answer == leftNumber) {
+    reutrn if(answer > rightNumber){
+        score++
+        generateRandomNumbers()
+        "Good job"
+        // last line in a return if is what will be returned
+    }
+    else {
+        score--
+        generateRandmonNumbers()
+        "Wrong"
+    }
+}
+if(answer == rightNumber){
+    return if(answer > leftNumber){
+        score++
+        generateRandomNumbers()
+        "Good"
+    }
+    else{
+        score--
+        generateRandomNumbers()
+        "No"
+    }
+}
+*/
