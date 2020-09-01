@@ -22,23 +22,20 @@ class MainActivity : AppCompatActivity() {
         // in Kotlin: don't need "new" or to declare the type either:
 
         // generate two random numbers
-        game.generateRandonNumbers()
+        game.generateRandomNumbers()
         game.leftNumber
         game.rightNumber
         game.score
         game.checkAnswer(button_main_left.text.toString().toInt())
         // assign those numbers to the buttons
-        button_main_left.text = generateNumbers().toString()
-        button_main_right.text = generateNumbers().toString()
+        button_main_left.text = game.generateRandomNumbers().toString()
+        button_main_right.text = game.generateRandomNumbers().toString()
         // set an initial score to 0
-        textView_main_score.text = score.toString()
+        textView_main_score.text = game.score.toString()
 
     }
 
-    fun generateNumbers(): Int {
-        // code to make new random numbers
-        return (Math.random()*100 +1).toInt()
-    }
+
 
     fun onLeftClick(view: View){
         // get button number values as String variables
@@ -47,23 +44,23 @@ class MainActivity : AppCompatActivity() {
 
         // read the buttons
         if(checkLeftInt == checkRightInt){
-            button_main_left.text = generateNumbers().toString()
-            button_main_right.text = generateNumbers().toString()
+            button_main_left.text = game.generateRandomNumbers().toString()
+            button_main_right.text = game.generateRandomNumbers().toString()
         }
         else if(checkLeftInt > checkRightInt) {
-            score++
-            textView_main_score.text = score.toString()
+            game.score++
+            textView_main_score.text = game.score.toString()
             Toast.makeText(this, "Congrats! You're not an idiot!", Toast.LENGTH_SHORT).show()
         }
         else {
-            score--
-            textView_main_score.text = score.toString()
+            game.score--
+            textView_main_score.text = game.score.toString()
             Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
         }
 
         // reset buttons to new numbers
-        button_main_left.text = generateNumbers().toString()
-        button_main_right.text = generateNumbers().toString()
+        button_main_left.text = game.generateRandomNumbers().toString()
+        button_main_right.text = game.generateRandomNumbers().toString()
     }
     fun onRightClick(view: View){
         // get button number values as String variables
@@ -71,17 +68,17 @@ class MainActivity : AppCompatActivity() {
         var checkRightInt = button_main_right.text.toString().toInt()
 
         if(checkLeftInt == checkRightInt){
-            button_main_left.text = generateNumbers().toString()
-            button_main_right.text = generateNumbers().toString()
+            button_main_left.text = game.generateRandomNumbers().toString()
+            button_main_right.text = game.generateRandomNumbers().toString()
         }
         else if(checkRightInt > checkLeftInt) {
-            score++
-            textView_main_score.text = score.toString()
+            game.score++
+            textView_main_score.text = game.score.toString()
             Toast.makeText(this, "Congrats! You're not an idiot!", Toast.LENGTH_SHORT).show()
         }
         else {
-            score--
-            textView_main_score.text = score.toString()
+            game.score--
+            textView_main_score.text = game.score.toString()
             Toast.makeText(this, "Dude... come on...", Toast.LENGTH_SHORT).show()
         }
 
@@ -90,8 +87,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         // reset buttons to new numbers
-        button_main_left.text = generateNumbers().toString()
-        button_main_right.text = generateNumbers().toString()
+        button_main_left.text = game.generateRandomNumbers().toString()
+        button_main_right.text = game.generateRandomNumbers().toString()
     }
 }
 

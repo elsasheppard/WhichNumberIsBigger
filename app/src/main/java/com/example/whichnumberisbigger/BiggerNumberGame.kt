@@ -20,8 +20,9 @@ class BiggerNumberGame(val lowerLimit: Int, val upperLimit: Int) {
     }
 
     // need a function to generate random numbers
-    fun generateRandomNumbers() {
-        // give two unique numbers for leftNumber and rightNumber between upper and lower limits inclusive
+    fun generateRandomNumbers(): Int {
+        // code to make new random numbers
+        return (Math.random() * 100 + 1).toInt()
     }
 
     // need a function to check the answer, update the score, and return a message
@@ -29,14 +30,14 @@ class BiggerNumberGame(val lowerLimit: Int, val upperLimit: Int) {
     // public String checkAnswer(int answer)
     // In Kotlin
     // fun methodName(paramVar: paramType) : returnType
-    fun checkAnswer(answer: Int) : String {
+    fun checkAnswer(answer: Int): String {
         // decide if the answer was bigger or not
         //adjust the score accordingly
         // return a message for the MainActivity to Toast
 
 
     }
-
-
-
 }
+
+
+
