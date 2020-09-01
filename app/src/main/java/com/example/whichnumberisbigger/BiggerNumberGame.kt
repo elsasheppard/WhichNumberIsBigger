@@ -1,5 +1,8 @@
 package com.example.whichnumberisbigger
 
+import kotlinx.android.synthetic.main.activity_main.*
+
+
 // in java, when you jad a class that had no Android functionality, it was called a POJO
 // POJO = Plain Old Java Object
 // POKO = Plain Old Kotlin Object...? maybe... or also a data class perhaps...
@@ -14,15 +17,19 @@ class BiggerNumberGame(val lowerLimit: Int, val upperLimit: Int) {
     var score = 0
 
     // init block gets run one time when the object is constructed
-    // usually used for complex operations to set the initital state of the object
+    // usually used for complex operations to set the initial state of the object
     init {
         generateRandomNumbers()
     }
 
     // need a function to generate random numbers
-    fun generateRandomNumbers(): Int {
+    fun generateRandomNumbers() {
         // code to make new random numbers
-        return (Math.random() * 100 + 1).toInt()
+        leftNumber = (Math.random() * upperLimit + lowerLimit + 1).toInt()
+        rightNumber = (Math.random() * upperLimit + lowerLimit + 1).toInt()
+        if(leftNumber == rightNumber) {
+            generateRandomNumbers()
+        }
     }
 
     // need a function to check the answer, update the score, and return a message
@@ -30,12 +37,19 @@ class BiggerNumberGame(val lowerLimit: Int, val upperLimit: Int) {
     // public String checkAnswer(int answer)
     // In Kotlin
     // fun methodName(paramVar: paramType) : returnType
-    fun checkAnswer(answer: Int): String {
+    fun checkAnswer(userResponse: Int): String {
         // decide if the answer was bigger or not
         //adjust the score accordingly
         // return a message for the MainActivity to Toast
 
-
+        if(userResponse == leftNumber && userResponse >= rightNumber) {
+            return "Congrats! You know basic math!!"
+            score++
+        }
+        else {
+            return "Bro... Come on..."
+            score--
+        }
     }
 }
 
